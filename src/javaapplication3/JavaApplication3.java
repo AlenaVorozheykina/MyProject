@@ -4,18 +4,78 @@
  * and open the template in the editor.
  */
 package javaapplication3;
-
+import java.util.Scanner;
+ 
 /**
  *
  * @author student1
  */
 public class JavaApplication3 {
 
-    /**
-     * @param args the command line arguments
-     */
+    public static long factorialUsingForLoop(int n) {
+        long fact = 1;
+        for (int i = 2; i <= n; i++) {
+            fact = fact * i;
+        }
+        return fact;
+    }
+    
+    public static boolean isNumeric(String str) { 
+        try {  
+          Double.parseDouble(str);  
+          return true;
+        } catch(NumberFormatException e){  
+          return false;  
+        }  
+    }
+    
+    public static void printMenu(){
+        System.out.println("1. Factorial");
+        System.out.println("2. Multiply");
+        System.out.println("3. Divide");
+        System.out.println("4. Exit");
+        
+        System.out.println("Enter choice");
+        Scanner in = new Scanner(System.in);
+        String input = in.nextLine();
+                if(isNumeric(input)){
+                    long result = factorialUsingForLoop((int) Double.parseDouble(input));
+                    userChoice((int) result);
+                }
+        System.out.println("ERROR!\n");
+        printMenu();
+    }
+    
+    public static void userChoice(int choice){
+        switch(choice){
+            case 1:
+                System.out.println("Enter number for calculation");
+                Scanner in = new Scanner(System.in);
+                String input = in.nextLine();
+                if(isNumeric(input)){
+                    long result = factorialUsingForLoop((int) Double.parseDouble(input));
+                    System.out.println(result + "\n");
+                    printMenu();
+                }
+                System.out.println("WRONG INPUT!\n");
+                printMenu();
+                break;
+            case 2:
+                break;
+            case 3:
+                break;
+            case 4:
+                break;
+            default:
+                System.out.println("WRONG INPUT!\n");
+                printMenu();
+                break;
+        }
+    }
+    
     public static void main(String[] args) {
-        // TODO code application logic here
+        printMenu();
+        
     }
     
 }
