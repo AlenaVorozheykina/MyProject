@@ -16,6 +16,10 @@ public class JavaApplication3 {
         return a*b;
     }
     
+    public static double divide(int a,int b) {
+        return a/b;
+    }
+    
     public static long factorialUsingForLoop(int n) {
         long fact = 1;
         for (int i = 2; i <= n; i++) {
@@ -80,6 +84,17 @@ public class JavaApplication3 {
                 printMenu();
                 break;
             case 3:
+                System.out.println("Enter numbers for calculation");
+                in = new Scanner(System.in);
+                input = in.nextLine();
+                input1 = in.nextLine();
+                if(isNumeric(input) && isNumeric(input)){
+                    double result = multiply(Integer.parseInt(input), Integer.parseInt(input1));
+                    System.out.println(result + "\n");
+                    printMenu();
+                }
+                System.out.println("WRONG INPUT!\n");
+                printMenu();
                 break;
             case 4:
                 break;
