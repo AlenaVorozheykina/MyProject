@@ -49,8 +49,10 @@ public class JavaApplication3 {
                 if(isNumeric(input)){
                     long result = factorialUsingForLoop((int) Double.parseDouble(input));
                     userChoice((int) result);
+                } else {
+                    System.out.println("ERROR!\n");
                 }
-        System.out.println("ERROR!\n");
+        
         printMenu();
     }
     
@@ -97,6 +99,7 @@ public class JavaApplication3 {
                 printMenu();
                 break;
             case 4:
+                System.exit(0);
                 break;
             default:
                 System.out.println("WRONG INPUT!\n");
